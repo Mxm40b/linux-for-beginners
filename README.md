@@ -11,14 +11,18 @@ motherboard, cpu, gpu, sound card, ports and other electronics.
 
 How cpus and gpus work.
 
+
+Differences between windows and linux.
+
 How linux builds on that physical foundation to offer a useable kernel.
+
 How linux works, in general, with external links that are a bit more specific and detailed.
 
 
 How to install:
 distributions:
-arch
-nixos
+arch,
+nixos,
 ubuntu and others
 
 packages: specific to distributions
@@ -27,10 +31,10 @@ packages: specific to distributions
 
 How to configure nixos
 
-how to write systemd services, in both nixos and other distros.
+How to write systemd services, in both nixos and other distros.
 
-How to fix bugs in general
-How to fix bugs in specific cases
+How to fix bugs in general.
+How to fix bugs in specific cases.
 
 
 
