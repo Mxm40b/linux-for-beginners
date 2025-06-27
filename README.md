@@ -12,7 +12,7 @@ motherboard, cpu, gpu, sound card, ports and other electronics.
 How cpus and gpus work.
 
 
-Differences between windows and linux.
+Differences between windows and linux: advantages of switching to linux.
 
 How linux builds on that physical foundation to offer a useable kernel.
 
