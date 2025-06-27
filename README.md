@@ -21,6 +21,11 @@ How linux builds on that physical foundation to offer a useable kernel.
 How linux works, in general, with external links that are a bit more specific and detailed.
 
 
+what are programs? 
+what are shaders?
+
+
+
 How to install:
 distributions:
 arch,
@@ -47,6 +52,7 @@ how to use wine
 
 
 Software on linux:
+What is FOSS? What are its advantages/disadvantages?
 
 Basics of a terminal
 
@@ -69,7 +75,7 @@ Code:
 nvim
 helix
 VSCode
-
+Godot
 
 PDF:
 typst
@@ -96,9 +102,27 @@ sh syntax ( piping, >, $in, env variables)
 
 Art:
 Blender
+Inkscape
+Krita
+ardour
+ktractor
+kdenlive
 
 
 
+
+
+
+
+
+
+
+Programming:
+short introduction into a few languages, what you can do with them
+link with shell, which is a scripting language
+
+python basics
+c and c++ basics
 
 
 
