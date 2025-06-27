@@ -174,6 +174,11 @@ browsers
 
 
 
+dictionnary for words that do not belong to any section in particular but that are commonly used in forums, or in the manual itself?
+
+
+
+
 
 This manual will be organised into well-defined hierarchies for ease of editing. Please feel free to jump to any section of interest,
 but remember that any subsection assumes knowledge of previous subsections and of some other sections that will be specified under each section's title.
