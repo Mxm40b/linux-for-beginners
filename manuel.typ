@@ -1,9 +1,28 @@
-
 #set text(
   font: "Maple Mono NF",
   // font: "Rounded Mgen+ 1c",
+  // font: "JetBrains Mono",
   size: 10pt
 )
+
+#set par(
+  justify: true
+)
+
+#set page(
+  paper: "a4",
+  header: align(right)[
+    header
+  ],
+  numbering: "1"
+)
+
+#align(center, text(17pt)[
+  *The beginner's guide to Linux*
+])
+
+
+
 
 
 = Introduction
@@ -16,24 +35,20 @@ for scientific writing due to its power and flexibility. However, it also comes
 with a steep learning curve, complex syntax, and long compile times, leading to
 frustration and despair for many researchers.
 
-```rs
-fn main() {
-  println!("Hello world");
-}
-```
 
+\
+\
+\
 #figure(
-  caption: [The famous `hello world` program, in Rust.],
-  ```rs
-  fn main() {
-    println!("Hello world!");
-  }
+  caption: [The famous `hello world` program, in Python.],
+  ```py
+  print("Hello Nightmare Language!")
   ```
 )
 
-
-$ "expression" + rho = sum_(i=0)^m (i) $
-
+\
+\
+\
 
 
 
