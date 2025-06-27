@@ -60,6 +60,20 @@ How to fix bugs in general.
 How to fix bugs in specific cases.
 
 
+how git works
+how jj works
+
+
+package managers
+
+
+
+compression
+
+data, binary to hex to ascii etc
+
+
+
 
 how wine works
 how to use wine
@@ -101,6 +115,15 @@ Libreoffice
 openoffice
 onlyoffice
 
+### "readers"
+
+PDF: sioyek, tdf, browsers, etc
+
+Images: timg
+
+Video: ...
+
+sound: ...
 
 
 
