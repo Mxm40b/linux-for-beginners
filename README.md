@@ -42,21 +42,62 @@ how wine works
 how to use wine
 
 
+
+
+Software on linux:
+
+Basics of a terminal
+
+difference between cli, tui, gui
+with examples
+
+
+X11 and wayland: differences
+compositors, window managers: differences, types, list of them, how to configure in general, options, etc
+
+useful programs such as fuzzel, waybar etc
+
+
+Editors:
+
+note-taking:
+obsidian.md
+
+Code:
+nvim
+helix
+VSCode
+
+
+PDF:
+typst
+
+Word docs:
+Libreoffice
+openoffice
+onlyoffice
+
+
+
+
+
+Useful and common cli commands:
+ls
+cat
+mkdir
+grep
+sh syntax ( piping, >, $in, env variables)
+...
+
+
+
+
+
+
+
+
+
+
+
 This manual will be organised into well-defined hierarchies for ease of editing. Please feel free to jump to any section of interest,
 but remember that any subsection assumes knowledge of previous subsections and of some other sections that will be specified under each section's title.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
