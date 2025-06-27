@@ -8,17 +8,18 @@ It is focused on nixos, but should work for other distros as well.
 
 It will include sections on:
 
-### How computers are made:
+# How computers are made:
 motherboard, cpu, gpu, sound card, ports and other electronics.
 
 How cpus and gpus work.
 
 
-# Differences between windows and linux: 
+### Differences between windows and linux: 
 advantages of switching to linux.
 
-How linux builds on that physical foundation to offer a useable kernel.
 
+
+### How linux builds on that physical foundation to offer a useable kernel.
 How linux works, in general, with external links that are a bit more specific and detailed.
 
 
@@ -27,7 +28,7 @@ what are shaders?
 
 
 
-# How to install:
+### How to install:
 distributions:
 arch,
 nixos,
@@ -52,22 +53,22 @@ how to use wine
 
 
 
-### Software on linux:
+# Software on linux:
 What is FOSS? What are its advantages/disadvantages?
 
-# Basics of a terminal
+### Basics of a terminal
 
 difference between cli, tui, gui
 with examples
 
 
-# X11 and wayland: differences
+### X11 and wayland: differences
 compositors, window managers: differences, types, list of them, how to configure in general, options, etc
 
 useful programs such as fuzzel, waybar etc
 
 
-# Editors:
+### Editors:
 
 note-taking:
 obsidian.md
@@ -101,7 +102,7 @@ sh syntax ( piping, >, $in, env variables)
 
 
 
-# Art:
+### Art:
 Blender
 Inkscape
 Krita
@@ -118,7 +119,7 @@ kdenlive
 
 
 
-# Programming:
+### Programming:
 short introduction into a few languages, what you can do with them
 link with shell, which is a scripting language
 
