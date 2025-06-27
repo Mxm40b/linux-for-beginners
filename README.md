@@ -80,6 +80,10 @@ how to use wine
 
 
 
+themes on nixos/linux
+
+
+
 
 # Software on linux:
 What is FOSS? What are its advantages/disadvantages?
