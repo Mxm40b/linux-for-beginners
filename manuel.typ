@@ -1,4 +1,11 @@
 
+#set text(
+  font: "Maple Mono NF",
+  // font: "Rounded Mgen+ 1c",
+  size: 10pt
+)
+
+
 = Introduction
 Scientific writing is a crucial part of the research process, allowing
 researchers to share their findings with the wider scientific community.
@@ -23,3 +30,25 @@ fn main() {
   }
   ```
 )
+
+
+$ "expression" + rho = sum_(i=0)^m (i) $
+
+
+
+
+
+#set heading(
+  numbering: "1."
+)
+
+= Hardware
+
+== CPU, GPU
+
+== RAM, ports
+
+= Software
+
+== The Linux Kernel
+
