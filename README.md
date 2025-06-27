@@ -2,6 +2,8 @@
 
 This is a manual that is made for beginners to learn how to use linux.
 
+It is focused on nixos, but should work for other distros as well.
+
 
 
 It will include sections on:
@@ -92,6 +94,8 @@ sh syntax ( piping, >, $in, env variables)
 
 
 
+Art:
+Blender
 
 
 
