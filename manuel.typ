@@ -21,7 +21,13 @@
   *The beginner's guide to Linux*
 ])
 
+#import "templates/code.typ": code
 
+
+
+
+
+#code(file: "no", language: "python", code: [print("ha")])
 
 
 
