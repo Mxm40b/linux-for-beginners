@@ -40,6 +40,20 @@ packages: specific to distributions
 
 How to configure nixos
 
+
+what are daemons? services?
+
+what are drivers? kernel modules?
+
+
+sound on linux
+
+video on linux
+screen capture on linux
+
+servers, connections, etc on linux and in general
+
+
 How to write systemd services, in both nixos and other distros.
 
 How to fix bugs in general.
