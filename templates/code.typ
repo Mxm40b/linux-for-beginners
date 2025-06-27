@@ -1,6 +1,6 @@
 #let code(language:(), file:(), code:[]) = {
   set align(left)
-  set text(font: "JetBrains Mono",
+  set text(font: "Maple Mono NF",
   size: 12pt)
   block(
     fill: luma(230),
