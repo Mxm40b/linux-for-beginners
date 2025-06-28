@@ -22,28 +22,8 @@
   *Linux d'après Napoléon*
 ])
 
-<<<<<<< HEAD
-=======
-#import "templates/code.typ": showCode
 #import "templates/chapters.typ": show-chapters, chapters
 
-\
-\
-\
-
-#showCode(textIn:"print(\"ha\")", file: "myArse.py", lang: "python", bgCol: rgb(60, 60, 60, 255), txtCol: white)
-
-\
-\
-\
-
-
-<<<<<<< HEAD
-\
-\
-\
-=======
->>>>>>> b1d16487dd561b97793d5e5964f8cce813d93158
 == C'est quoi un système d'exploitation ?
 Un système d'exploitation constitue l'ensemble des logiciels nécessaire au fonctionnement basique d'un ordinateur.
 L'abbréviation pour désigner le système d'exploition est "OS", qui vient de l'anglais *Operating System*.
@@ -72,20 +52,12 @@ Des exemples de distributions Linux et de leurs philosophies sont:
 == NixOS
 Nous allons ici nous intéresser à NixOS car une configuration déclarative a de nombreux avantages sur une configuration impérative.
 Pour rappel, une configuration impérative se fait en entrant des commandes tandis qu'une configuration déclarative se fait en modifiant des fichiers de configuration.
-Avec NixOS, qui est un système qui est construit au tour du *gestionnaire de paquets* Nix, il est possible de configurer toutes les applications, avec une syntaxe unifiée pour ne pas avoir besoin d'apprendre à configurer chaque application.>
+Avec NixOS, qui est un système qui est construit au tour du *gestionnaire de paquets* Nix, il est possible de configurer toutes les applications, avec une syntaxe unifiée pour ne pas avoir besoin d'apprendre à configurer chaque application.
 
 === Mais qu'est qu'un gestionnaire de paquets, ou *package manager* ?
 Un gestionnaire de paquets est un programme qui permet d'installer et mettre à jour tous les programmes.
 Les gestionnaires de paquets sont omniprésents dans les systèmes GNU/Linux: *apt* dans les systèmes basés sur Debian, *pacman* sous Archlinux, *nix* sous NixOS...
 En revanche, sous Windows, le seul programme qui s'apparente à un gestionnaire de paquets est le Microsoft Store. La plupart des applications se mettent à jour de manière autonome sous Windows, ce qui conduit à un travail redondant supplémentaire et souvent bâclé pour les développeurs d'applications.
->>>>>>> refs/remotes/origin/main
-
-#show-chapters(chapters)
-
-<<<<<<< HEAD
-\
-\
-\
 
 === Installation
 Des instructions d'installation détaillées sont disponibles sur #link("https://nixos.org/manual/nixos/stable/#ch-installation")[le manuel].
@@ -97,7 +69,6 @@ Il est recommandé de décommenter la ligne qui active NetworkManager.
 L'outil recommandé dans le manuel, `nano`, est un bon exemple de programme GNU. En revanche, il pue la mort et l'utiliser revient à pactiser avec le Diable.
 Les commandes doivent être entrées dans une *shell*.
 
-<<<<<<< HEAD
 == Une shell ? Késako ?
 Une shell est un interpréteur de ligne de commande. Elle permet à un utilisateur de contrôler son système en écrivant des commandes dans la shell.
 
@@ -115,29 +86,6 @@ Pour ce faire, il suffit d'ajouter nvim à la liste des packages du système, d�
   environment.systemPackages = with pkgs; [
     nvim
   ];
-=======
-= Introduction
-Scientific writing is a crucial part of the research process, allowing
-researchers to share their findings with the wider scientific community.
-However, the process of typesetting scientific documents can often be a
-frustrating and time-consuming affair, particularly when using outdated tools
-such as LaTeX. Despite being over 30 years old, it remains a popular choice
-for scientific writing due to its power and flexibility. However, it also comes
-with a steep learning curve, complex syntax, and long compile times, leading to
-frustration and despair for many researchers.
-
-
-\
-=======
-
->>>>>>> refs/remotes/origin/main
-\
-\
-#figure(
-  caption: [The famous `hello world` program, in Python.],
-  ```sh
-  print("Hello Nightmare Language!")
->>>>>>> b1d16487dd561b97793d5e5964f8cce813d93158
   ```
 )
 
