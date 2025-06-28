@@ -21,14 +21,29 @@
   *The beginner's guide to Linux*
 ])
 
-#import "templates/code.typ": code
+#import "templates/code.typ": showCode
+#import "templates/chapters.typ": show-chapters, chapters
+
+\
+\
+\
+
+#showCode(textIn:"print(\"ha\")", file: "myArse.py", lang: "python", bgCol: rgb(60, 60, 60, 255), txtCol: white)
+
+\
+\
+\
 
 
+\
+\
+\
 
+#show-chapters(chapters)
 
-
-#code(file: "no", language: "python", code: [print("ha")])
-
+\
+\
+\
 
 
 = Introduction
@@ -47,7 +62,7 @@ frustration and despair for many researchers.
 \
 #figure(
   caption: [The famous `hello world` program, in Python.],
-  ```py
+  ```sh
   print("Hello Nightmare Language!")
   ```
 )
