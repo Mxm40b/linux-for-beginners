@@ -10,6 +10,6 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
-    typst watch manuel.typ &
+    typst watch manuel.typ #> /dev/null 2>&1 &
   '';
 }

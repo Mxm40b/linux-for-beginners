@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // #let code(language:(), file:(), code:[]) = {
 //   set align(left)
 //   set text(font: "JetBrains Mono",
@@ -7,6 +8,17 @@
 //     inset: 8pt,
 //     radius: 10pt
 //   )[
+=======
+#let code(language:(), file:(), code:[]) = {
+  set align(left)
+  set text(font: "Maple Mono NF",
+  size: 12pt)
+  block(
+    fill: luma(230),
+    inset: 8pt,
+    radius: 10pt
+  )[
+>>>>>>> refs/remotes/origin/main
   
 //   *#language*
 //   \
