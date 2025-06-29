@@ -1,34 +1,44 @@
+#import "@preview/catppuccin:1.0.0": catppuccin, flavors
+
 #set text(
   font: "Maple Mono NF",
-  size: 10pt
+  size: 10pt,
+  luma(255)
 )
+
 
 #set par(
   justify: true
 )
+#set figure(numbering: none)
 #show link: set text(fill: blue)
 #show link: underline
 // #show raw.where(block: true): set block(fill: luma(240), inset: 1em, radius: 0.5em, width: 100%)
+// #set raw(theme:catppuccin())
 #show raw: it => [
-  #let bgCol = luma(100)
-  #let txtCol = luma(255)
-  #let cornerRadius = 10pt
-  #let inset = 9pt
-  #let txtSize = 9pt
-  #set align(left)
-  #set text(size: txtSize, txtCol)
-  #let outLanguage = ""
-  #if it.lang != "" {
+  #if it.lang != none {
+  let bgCol = luma(40)
+  let txtCol = luma(255)
+  let cornerRadius = 10pt
+  let inset = 9pt
+  let txtSize = 9pt
+  set align(left)
+  set text(size: txtSize, txtCol)
+  let outLanguage = ""
+  if it.lang != "" {
     outLanguage = it.lang + "\n"
   }
-  #block(
+  block(
     fill: bgCol,
     inset: inset,
     radius: cornerRadius
   )[
-    #outLanguage
+    #text(outLanguage, size: txtSize - 2pt)
     #it
   ]
+  } else {
+    it
+  }
 ]
 
 
@@ -42,7 +52,8 @@
   header: align(right)[
     #image("images/tao.png", width: 10%)
   ],
-  numbering: "1"
+  numbering: "1",
+  background: rect(fill:luma(50), width: 1000pt, height: 1000pt)
 )
 
 #align(center, text(17pt)[
@@ -136,16 +147,17 @@ ls /, ou cd /; ls home/.
 À part ls et cd, il y a aussi:
 (ce qui est entre crochets est à compléter, parfois optionellement)
 
-man: man [options] [[section] page]
+- man: ```sh man [options] [[section] page]```
 exemple: man 1 ls
-qui explique comment utiliser ls
+qui explique comment utiliser ls\
+- mkdir
 
-mkdir: mkdir [options] [path]
-qui crée un dossier
+```sh mkdir [options] [path]```
+qui crée un dossier\
+- cat:
+```sh cat [options] [path to folder]``` qui lit un fichier texte et l'affiche
 
-cat: [options] [path to folder] qui lit un fichier texte et l'affiche
-
-grep: some-command | grep "string-to-search"
+- grep: ```sh some-command | grep "string-to-search"```
 qui permet de rechercher du texte dans ce qu'une commande imprime à l'écran.
 
 Pipe: | il s'agit de syntaxe de shell que l'on voit souvent.
@@ -160,7 +172,7 @@ Je recommande l'usage de NVIM, qui est fortement customisable par des plugins qu
 
 Pour installer NVIM, il suffit d'ajouter le *package* nvim à la liste des packages du système.
 Pour ce faire, il suffit d'ajouter nvim à la liste des packages du système, dénominés par ```nix
-environment.systemPackages``` dans ```sh /etc/nixos/configuration.nix```.
+environment.systemPackages``` dans `/etc/nixos/configuration.nix`.
 
 #figure(
   caption: [Un extrait de ```sh /etc/nixos/configuration.nix```],
