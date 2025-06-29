@@ -8,7 +8,34 @@
 )
 #show link: set text(fill: blue)
 #show link: underline
-#show raw.where(block: true): set block(fill: luma(240), inset: 1em, radius: 0.5em, width: 100%)
+// #show raw.where(block: true): set block(fill: luma(240), inset: 1em, radius: 0.5em, width: 100%)
+#show raw: it => [
+  #let bgCol = luma(100)
+  #let txtCol = luma(255)
+  #let cornerRadius = 10pt
+  #let inset = 9pt
+  #let txtSize = 9pt
+  #set align(left)
+  #set text(size: txtSize, txtCol)
+  #let outLanguage = ""
+  #if it.lang != "" {
+    outLanguage = it.lang + "\n"
+  }
+  #block(
+    fill: bgCol,
+    inset: inset,
+    radius: cornerRadius
+  )[
+    #outLanguage
+    #it
+  ]
+]
+
+
+#let show-raw(raw) = {
+  set align(left)
+  block(raw.lang + "\n" + raw.text)
+}
 
 #set page(
   paper: "a4",
@@ -132,10 +159,11 @@ Un éditeur qui est hyper bien, en revanche, est *NVIM* (NeoVIM), une *fork* (= 
 Je recommande l'usage de NVIM, qui est fortement customisable par des plugins qu'on peut écrire en langage de programmation *Lua*.
 
 Pour installer NVIM, il suffit d'ajouter le *package* nvim à la liste des packages du système.
-Pour ce faire, il suffit d'ajouter nvim à la liste des packages du système, dénominés par `environment.systemPackages`, dans `/etc/nixos/configuration.nix`.
+Pour ce faire, il suffit d'ajouter nvim à la liste des packages du système, dénominés par ```nix
+environment.systemPackages``` dans ```sh /etc/nixos/configuration.nix```.
 
 #figure(
-  caption: [Un extrait de `/etc/nixos/configuration.nix`],
+  caption: [Un extrait de ```sh /etc/nixos/configuration.nix```],
   ```nix
   environment.systemPackages = with pkgs; [
     nvim
