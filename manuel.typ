@@ -17,26 +17,27 @@
 // #set raw(theme:catppuccin())
 #show raw: it => [
   #if it.lang != none {
-  let bgCol = luma(40)
-  let txtCol = luma(255)
-  let cornerRadius = 10pt
-  let inset = 9pt
-  let txtSize = 9pt
-  set align(left)
-  set text(size: txtSize, txtCol)
-  let outLanguage = ""
-  if it.lang != "" {
-    outLanguage = it.lang + "\n"
-  }
-  block(
-    fill: bgCol,
-    inset: inset,
-    radius: cornerRadius
-  )[
-    #text(outLanguage, size: txtSize - 2pt)
-    #it
-  ]
+    let bgCol = luma(40)
+    let txtCol = luma(255)
+    let cornerRadius = 10pt
+    let inset = 9pt
+    let txtSize = 9pt
+    set align(left)
+    set text(size: txtSize, txtCol)
+    let outLanguage = ""
+    if it.lang != "" {
+      outLanguage = it.lang + "\n"
+    }
+    block(
+      fill: bgCol,
+      inset: inset,
+      radius: cornerRadius
+    )[
+      #text(outLanguage, size: txtSize - 2pt)
+      #it
+    ]
   } else {
+    set text(rgb("#bbeebb"), font:"FiraCode Nerd Font Mono")
     it
   }
 ]
@@ -83,7 +84,7 @@ Des exemples de distributions Linux et de leurs philosophies sont:
 ]
 - Ubuntu, qui est Debian avec l'environnement de bureau *GNOME préinstallé* (offrant une expérience de bureau relativement proche de celle de MacOS)
 - Kubuntu, qui est Debian avec l'environnement de bureau *KDE Plasma* préinstallé (offrant une expérience de bureau relativement proche de celle de Windows)
-- Archlinux, cherche à être le plus *base bones* possible
+- Archlinux, cherche à être le plus *bare bones* possible
 - NixOS, qui cherche à avoir une configuration complètement déclarative (donc qui se configure en modifiant des fichiers qui définissent la configuration globale du système)
 - SteamOS, qui cherche à être optimisé pour le jeu vidéo avec des outils comme Proton pour permettre la compatibilité avec certains jeux vidéos et applications faites pour l'OS Windows
 
@@ -100,7 +101,7 @@ En revanche, sous Windows, le seul programme qui s'apparente à un gestionnaire 
 === Installation
 Des instructions d'installation détaillées sont disponibles sur #link("https://nixos.org/manual/nixos/stable/#ch-installation")[le manuel].
 Il est fortement recommandé d'utiliser un flake (et donc de suivre la partie sur la configuration basée sur un flake), qui est une fonctionnalité de Nix qui permet de simplifier fortement une configuration.
-Il est recommandé de lire les commentaires et d'éditer le fichier de configuration du système /etc/nixos/configuration.nix avant d'installer le système.
+Il est recommandé de lire les commentaires et d'éditer le fichier de configuration du système `/etc/nixos/configuration.nix` avant d'installer le système.
 Certaines lignes seront commentées, ce qui se voit par un dièse \# au début de la ligne.
 Une ligne commentée ne sera pas prise en compte dans l'évaluation de la configuration.
 Il est recommandé de décommenter la ligne qui active NetworkManager.
@@ -123,24 +124,26 @@ dans lequel la shell est.
 
 Oui, il s'agit de la base du fonctionnement d'une shell. Elle permet d'intéragir avec les fichiers d'un système.
 Mais, il y a beaucoup de fichiers. Si l'on s'imagine un "arbre de fichiers et dossiers", où la racine contient toutes les branches,
-et chaque branche contient ses feuilles, et chaque feuille contient ses fibres, il faut pouvoir dire: racine=>branche 3=>feuille 8000=>40 000e fibre. \
+et chaque branche contient ses feuilles, et chaque feuille contient ses fibres, il faut pouvoir dire: `racine=>branche 3=>feuille 8000=>40 000e fibre`. \
 Pour simplifier le processus, chaque sous-branche porte le nom du dossier correspondant, ainsi que chaque feuille et ainsi de suite.
 Tous les fichiers peuvent être sélectionnés sur linux avec la syntaxe:\
-/home/[user]/Documents/pigeon.mp4 \
+`/home/[user]/Documents/pigeon.mp4 `\
 par exemple,
 soit pour revenir sur la syntaxe précédente: \
-/racine/branche30/feuille400/fibre5000.txt
+`/racine/branche30/feuille400/fibre5000.txt`
 
-Si on _cd_ (pour Change Directory) dans un fichier que l'on voit avec _ls_, on devrait voir à gauche de la
+Si on _`cd`_ (pour Change Directory) dans un fichier que l'on voit avec `ls`, on devrait voir à gauche de la
 ligne d'insertion le "path" qui correspond.
 
 Une dernière note:
 Cette explication a peut-être été difficile à suivre si elle a été suivie depuis la shell d'un utilisateur:
-Dans ce cas, le path ressemble plutôt à "\~", ou à "\~/Documents/taoPics" ou à "\~/.config/nixos" encore
+Dans ce cas, le path ressemble plutôt à `~`, ou à `~/Documents/taoPics` ou à `~/.config/nixos` encore
 C'est parce que chaque utilisateur a un dossier "maison" qui se situe dans "/home/utilisateur/"
-et qui est dénoté \~ (le caractère incompréhensible justement). Donc, à chaque fois qu'on lit \~, il faut remplacer par /home/utilisateur.
-C'est pour ne pas écrire du texte inutile, puisque tous les fichiers modifiés seront probablement dans \~, et sinon on peut y accéder en faisant
-ls /, ou cd /; ls home/.
+et qui est dénoté `~` (le caractère incompréhensible justement). Donc, à chaque fois qu'on lit `~`, il faut remplacer par `/home/utilisateur`.
+C'est pour ne pas écrire du texte inutile, puisque tous les fichiers modifiés seront probablement dans `~`,
+et sinon on peut y accéder en faisant
+```sh ls /```ou ```sh cd /
+ ls home/```
 
 == D'autres commandes utiles:
 
@@ -148,16 +151,16 @@ ls /, ou cd /; ls home/.
 (ce qui est entre crochets est à compléter, parfois optionellement)
 
 - man: ```sh man [options] [[section] page]```
-exemple: man 1 ls
-qui explique comment utiliser ls\
-- mkdir
+exemple: `man 1 ls`
+qui explique comment utiliser `ls` \ \
+- `mkdir`
 
 ```sh mkdir [options] [path]```
-qui crée un dossier\
-- cat:
-```sh cat [options] [path to folder]``` qui lit un fichier texte et l'affiche
+qui crée un dossier \ \
+- `cat`:
+```sh cat [options] [path to folder]``` qui lit un fichier texte et l'affiche \ \
 
-- grep: ```sh some-command | grep "string-to-search"```
+- `grep`: ```sh some-command | grep "string-to-search"```
 qui permet de rechercher du texte dans ce qu'une commande imprime à l'écran.
 
 Pipe: | il s'agit de syntaxe de shell que l'on voit souvent.
@@ -175,7 +178,7 @@ Pour ce faire, il suffit d'ajouter nvim à la liste des packages du système, d�
 environment.systemPackages``` dans `/etc/nixos/configuration.nix`.
 
 #figure(
-  caption: [Un extrait de ```sh /etc/nixos/configuration.nix```],
+  caption: [Un extrait de `/etc/nixos/configuration.nix`],
   ```nix
   environment.systemPackages = with pkgs; [
     nvim
@@ -198,20 +201,29 @@ Cependant, sans applications, un compositeur est inutile. C'est pourquoi il est 
 
 
 
-= Comment installer Linux?
+== Comment installer Linux?
+
+
+Sachant qu'il y a plein de distros, chacune avec son propre moyen d'être installée,
+on peut essayer de comprendre le fonctionnement général, et détailler le processus d'installation pour
+NixOS spécifiquement, ainsi que Arch Linux, qui nous permet de faire chaque étape manuellement. Pour les autres distros, tu peux te référer à leurs pages de documentation qui
+sont souvent très claires.
+
+
+===Installer NixOS
 
 
 
-= Comment se charge un système d'exploitation?
+=== Comment se charge un système d'exploitation?
 
 
-
-
+Pour comprendre ce qu'on fait et pourquoi lorsqu'on installe linux, il faut comprendre comment un OS se "boot".
 
 Explicaton poyur android:
 https://community.nxp.com/t5/i-MX-Processors-Knowledge-Base/The-Android-Booting-process/ta-p/1129182
 
 
 Le bootloader est donc nécessaire pour pouvoir charger le reste de linux, parce qu'un bios ne peut pas charger un kernel monolithique directement.
+
 
 
