@@ -72,6 +72,60 @@ Les commandes doivent être entrées dans une *shell*.
 == Une shell ? Késako ?
 Une shell est un interpréteur de ligne de commande. Elle permet à un utilisateur de contrôler son système en écrivant des commandes dans la shell.
 
+image de shell:
+
+On peut écrire des mots dedans. Si ces mots ne veulent rien dire, dès qu'on appuie sur entrée,
+la shell ne peut pas interpréter ces mots et proteste que la commande n'existe pas. \
+En revanche, si la commande existe, par exemple si on tape "ls + Entrée",
+ls est une commande qui existe et qui est l'abbréviation de "list", et qui montre tous les fichiers
+et dossiers dans le dossier sélectionné. Donc, on verra tous les fichiers dans le dossier
+dans lequel la shell est.
+
+=== La shell est dans un dossier?
+
+Oui, il s'agit de la base du fonctionnement d'une shell. Elle permet d'intéragir avec les fichiers d'un système.
+Mais, il y a beaucoup de fichiers. Si l'on s'imagine un "arbre de fichiers et dossiers", où la racine contient toutes les branches,
+et chaque branche contient ses feuilles, et chaque feuille contient ses fibres, il faut pouvoir dire: racine=>branche 3=>feuille 8000=>40 000e fibre. \
+Pour simplifier le processus, chaque sous-branche porte le nom du dossier correspondant, ainsi que chaque feuille et ainsi de suite.
+Tous les fichiers peuvent être sélectionnés sur linux avec la syntaxe:\
+/home/[user]/Documents/pigeon.mp4 \
+par exemple,
+soit pour revenir sur la syntaxe précédente: \
+/racine/branche30/feuille400/fibre5000.txt
+
+Si on _cd_ (pour Change Directory) dans un fichier que l'on voit avec _ls_, on devrait voir à gauche de la
+ligne d'insertion le "path" qui correspond.
+
+Une dernière note:
+Cette explication a peut-être été difficile à suivre si elle a été suivie depuis la shell d'un utilisateur:
+Dans ce cas, le path ressemble plutôt à "\~", ou à "\~/Documents/taoPics" ou à "\~/.config/nixos" encore
+C'est parce que chaque utilisateur a un dossier "maison" qui se situe dans "/home/utilisateur/"
+et qui est dénoté \~ (le caractère incompréhensible justement). Donc, à chaque fois qu'on lit \~, il faut remplacer par /home/utilisateur.
+C'est pour ne pas écrire du texte inutile, puisque tous les fichiers modifiés seront probablement dans \~, et sinon on peut y accéder en faisant
+ls /, ou cd /; ls home/.
+
+== D'autres commandes utiles:
+
+À part ls et cd, il y a aussi:
+(ce qui est entre crochets est à compléter, parfois optionellement)
+
+man: man [options] [[section] page]
+exemple: man 1 ls
+qui explique comment utiliser ls
+
+mkdir: mkdir [options] [path]
+qui crée un dossier
+
+cat: [options] [path to folder] qui lit un fichier texte et l'affiche
+
+grep: some-command | grep "string-to-search"
+qui permet de rechercher du texte dans ce qu'une commande imprime à l'écran.
+
+Pipe: | il s'agit de syntaxe de shell que l'on voit souvent.
+C'est utilisé pour donner le résultat d'une commande, ce qu'elle affiche à l'écran,
+à une autre commande, par exemple si on veut rechercher un mot particulier dans un résultat trop long comme ls avec grep.
+
+
 == VI, VIM, NVIM
 Un éditeur qui est hyper bien, en revanche, est *NVIM* (NeoVIM), une *fork* (= une implémentation qui se base sur un programme existant) de VIM (VI Improved), qui lui-même est une fork de l'historique VI.
 
@@ -99,3 +153,25 @@ Une *GUI*, ou Graphical User Interface, est une interface non textuelle comme co
 La section #link("https://github.com/YaLTeR/niri/wiki/Getting-Started")[getting started] de sa documentation est très utile pour débuter. Une fois que niri est ajouté à vos environment.systemPackages (de la même manière que NVIM), il est trivial de le lancer en écrivant "niri" en ligne de commande.
 
 Cependant, sans applications, un compositeur est inutile. C'est pourquoi il est recommandé d'installer un terminal, qui donne accès à une GUI pour interagir avec la shell dans un compositeur, je recommande "kitty", mais aussi un navigateur web comme "firefox" et un lanceur d'applications comme "fuzzel". En lisant l'aide de Niri, qui aide à connaître les raccourcis clavier par défaut, il est possible de lancer fuzzel, pour ensuite lancer kitty, puis enfin NVIM depuis kitty (comme NVIM est une application qui s'utilise dans une shell). Tu peux aussi lancer firefox depuis fuzzel.
+
+
+
+
+
+= Comment installer Linux?
+
+
+
+= Comment se charge un système d'exploitation?
+
+
+
+
+
+Explicaton poyur android:
+https://community.nxp.com/t5/i-MX-Processors-Knowledge-Base/The-Android-Booting-process/ta-p/1129182
+
+
+Le bootloader est donc nécessaire pour pouvoir charger le reste de linux, parce qu'un bios ne peut pas charger un kernel monolithique directement.
+
+
