@@ -27,27 +27,33 @@
 == C'est quoi un système d'exploitation ?
 Un système d'exploitation constitue l'ensemble des logiciels nécessaire au fonctionnement basique d'un ordinateur.
 L'abbréviation pour désigner le système d'exploition est "OS", qui vient de l'anglais *Operating System*.
+L'OS qui a conquis le plus de territoire est Windows, de Microsoft, grâce à son ancienneté et à #link("https://www.pcmag.com/news/the-rise-of-dos-how-microsoft-got-the-ibm-pc-os-contract")[l'appel d'IBM pour faire un système pour leurs premiers ordinateurs, qui a conduit Microsoft à devenir une réfécence dans le développement d'OS]. L'OS que Microsoft a fait pour IBM est MS-DOS, ou Microsoft Dirty Operating System.
 
 == C'est quoi "Linux" ?
 Linux est un noyau ou *kernel* d'OS, soit la *brique* logicielle la plus proche du matériel, gérant les ressources disponibles et donnant une interface aux applications pour interagir avec ledit matériel.
+La première *release* (sortie) du noyau Linux date de 1991, son auteur est Linus Torvalds
 
 == Linux ne suffit donc pas,
 c'est pourquoi beaucoup d'OS sont de forme GNU/Linux, où GNU (se prononce "gnou") désigne des applications qui implémentent des fonctionnalités basiques dont a besoin tout utilisateur: créer un fichier, l'éditer, lister les fichiers dans un dossier, créer un dossier...
-Dire "un système Linux" est donc un abus de langage.
+#link("https://en.wikipedia.org/wiki/List_of_GNU_packages")[Les applications GNU] sont très nombreuses.
+Dire "un système Linux" est donc à la base un abus de langage et le vrai terme est "un système GNU/Linux".
 
 == Distributions Linux
 Bien que GNU/Linux soit au centre de presque tous les systèmes d'exploitation qu'on dénomine par abus de langage "Linux", certaines "distribution", adhérant à des philosophies d'organisation du système et d'expérience utilisateur, existent.
-La plus renommée de ces distributions est "Ubuntu", qui est basée sur la distribution "Debian".
 Des exemples de distributions Linux et de leurs philosophies sont:
 - Debian, distribution impérative (la configuration se fait avec des commandes)
 #align(center)[
   #image("images/debian_lesbians.png", width: 70%)
 ]
-- Ubuntu, qui est Debian avec l'environnement de bureau *GNOME préinstallé* (offrant une expérience de bureau relativement proche de celle de MacOS)
+- Ubuntu, qui est Debian avec l'environnement de bureau *GNOME préinstallé* (offrant une expérience de bureau relativement proche de celle de MacOS). C'est la distribution Linux la plus renommée, le développement est dirigé par l'entreprise anglaise Canonical.
 - Kubuntu, qui est Debian avec l'environnement de bureau *KDE Plasma* préinstallé (offrant une expérience de bureau relativement proche de celle de Windows)
 - Archlinux, cherche à être le plus *base bones* possible
-- NixOS, qui cherche à avoir une configuration complètement déclarative (donc qui se configure en modifiant des fichiers qui définissent la configuration globale du système)
+- NixOS, qui cherche à avoir une configuration complètement *déclarative* (donc qui se configure en modifiant des fichiers qui définissent la configuration globale du système)
 - SteamOS, qui cherche à être optimisé pour le jeu vidéo avec des outils comme Proton pour permettre la compatibilité avec certains jeux vidéos et applications faites pour l'OS Windows
+
+Pour résumer, la plupart des systèmes sous la dénomination "Linux" sont en fait des noyaux Linux packagés en distributions, qui peuvent elles-mêmes être basées sur d'autres distributions, et utilisant le plus souvent les applications de la suite GNU.
+
+Toutes ces distributions sont FOSS (Fully Open Source Software) à cause de la license de Linux, la #link("https://en.wikipedia.org/wiki/GNU_General_Public_License")[GPL]. Pour résumer, la GPL force les forks d'un programme développé avec cette license à utiliser aussi la GPL et à être open source, dans l'intérêt de l'utilisateur final ("all right reversed").
 
 == NixOS
 Nous allons ici nous intéresser à NixOS car une configuration déclarative a de nombreux avantages sur une configuration impérative.
@@ -83,9 +89,11 @@ Pour ce faire, il suffit d'ajouter nvim à la liste des packages du système, d�
 #figure(
   caption: [Un extrait de `/etc/nixos/configuration.nix`],
   ```nix
-  environment.systemPackages = with pkgs; [
-    nvim
-  ];
+  {
+    environment.systemPackages = with pkgs; [
+      nvim
+    ];
+  }
   ```
 )
 
@@ -99,3 +107,86 @@ Une *GUI*, ou Graphical User Interface, est une interface non textuelle comme co
 La section #link("https://github.com/YaLTeR/niri/wiki/Getting-Started")[getting started] de sa documentation est très utile pour débuter. Une fois que niri est ajouté à vos environment.systemPackages (de la même manière que NVIM), il est trivial de le lancer en écrivant "niri" en ligne de commande.
 
 Cependant, sans applications, un compositeur est inutile. C'est pourquoi il est recommandé d'installer un terminal, qui donne accès à une GUI pour interagir avec la shell dans un compositeur, je recommande "kitty", mais aussi un navigateur web comme "firefox" et un lanceur d'applications comme "fuzzel". En lisant l'aide de Niri, qui aide à connaître les raccourcis clavier par défaut, il est possible de lancer fuzzel, pour ensuite lancer kitty, puis enfin NVIM depuis kitty (comme NVIM est une application qui s'utilise dans une shell). Tu peux aussi lancer firefox depuis fuzzel.
+
+== Configurer des applications de manière déclarative
+Quasiment toutes les applications sont déjà supportées pour être configurées avec la syntaxe unifiée.
+Voici un exemple de configuration pour `kitty`, un terminal:
+```nix
+{ pkgs, ... }:
+{
+  programs.kitty = {
+    enable = true;
+    font = {
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "JetBrainsMono Nerd Font";
+      size = 9;
+    };
+    shellIntegration.enableFishIntegration = true;
+    keybindings = {
+      "f1" = "launch --cwd=current --type=tab nvim";
+      "f2" = "launch --cwd=current --type=tab";
+      "kitty_mod+f1" = "show_kitty_doc overview";
+    };
+    settings = {
+      allow_remote_control = "socket-only";
+      listen_on = "unix:/tmp/kitty";
+      window_padding_width = 25;
+      hide_window_decorations = true;
+
+      foreground = "#CDD6F4";
+      background = "#1C2433";
+      selection_foreground = "#1C2433";
+      selection_background = "#F5E0DC";
+      cursor = "#F5E0DC";
+      cursor_text_color = "#1E1E2E";
+      url_color = "#B4BEFE";
+      active_border_color = "#CBA6F7";
+      inactive_border_color = "#8E95B3";
+      bell_border_color = "#EBA0AC";
+
+      active_tab_foreground = "#11111B";
+      active_tab_background = "#CBA6F7";
+      inactive_tab_foreground = "#CDD6F4";
+      inactive_tab_background = "#181825";
+      tab_bar_background = "#11111B";
+
+      mark1_foreground = "#1E1E2E";
+      mark1_background = "#87B0F9";
+      mark2_foreground = "#1E1E2E";
+      mark2_background = "#CBA6F7";
+      mark3_foreground = "#1E1E2E";
+      mark3_background = "#74C7EC";
+
+      color0 = "#43465A";
+      color8 = "#43465A";
+
+      color1 = "#F38BA8";
+      color9 = "#F38BA8";
+
+      color2 = "#A6E3A1";
+      color10 = "#A6E3A1";
+
+      color3 = "#F9E2AF";
+      color11 = "#F9E2AF";
+
+      color4 = "#87B0F9";
+      color12 = "#87B0F9";
+
+      color5 = "#F5C2E7";
+      color13 = "#F5C2E7";
+
+      color6 = "#94E2D5";
+      color14 = "#94E2D5";
+
+      color7 = "#CDD6F4";
+      color15 = "#A1A8C9";
+    };
+  };
+}
+```
+
+Cependant, pour avoir accès à la plupart des applications que l'on voudrait pour un utilisateur et non pour le système, par exemple un navigateur, il faut utiliser le module Nix `home-manager`. Il permet donc de pouvoir avoir des configurations par-utilisateur et de pouvoir configurer bien plus d'applications. La configuration `kitty` ci-dessus, par exemple, n'est utilisable qu'avec `home-manager`.
+
+L'installation de `home-manager`, comme tout le reste, est déclarative !
+
+Dans /etc/nixos/flake.nix, 
