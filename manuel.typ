@@ -82,13 +82,8 @@ Des exemples de distributions Linux et de leurs philosophies sont:
 ]
 - Ubuntu, qui est Debian avec l'environnement de bureau *GNOME préinstallé* (offrant une expérience de bureau relativement proche de celle de MacOS). C'est la distribution Linux la plus renommée, le développement est dirigé par l'entreprise anglaise Canonical.
 - Kubuntu, qui est Debian avec l'environnement de bureau *KDE Plasma* préinstallé (offrant une expérience de bureau relativement proche de celle de Windows)
-<<<<<<< HEAD
 - Archlinux, cherche à être le plus *bare bones* possible
 - NixOS, qui cherche à avoir une configuration complètement *déclarative* (donc qui se configure en modifiant des fichiers qui définissent la configuration globale du système)
-=======
-- Archlinux, cherche à être le plus *bare bones* possible
-- NixOS, qui cherche à avoir une configuration complètement déclarative (donc qui se configure en modifiant des fichiers qui définissent la configuration globale du système)
->>>>>>> e0c1b8738dd36a6f4e7ea2752423c043a5970212
 - SteamOS, qui cherche à être optimisé pour le jeu vidéo avec des outils comme Proton pour permettre la compatibilité avec certains jeux vidéos et applications faites pour l'OS Windows
 
 Pour résumer, la plupart des systèmes sous la dénomination "Linux" sont en fait des noyaux Linux packagés en distributions, qui peuvent elles-mêmes être basées sur d'autres distributions, et utilisant le plus souvent les applications de la suite GNU.
@@ -118,16 +113,10 @@ Les commandes doivent être entrées dans une *shell*.
 == Une shell ? Késako ?
 Une shell est un interpréteur de ligne de commande. Elle permet à un utilisateur de contrôler son système en écrivant des commandes dans la shell.
 
-image de shell:
+On peut écrire des mots dedans. Si ces mots ne veulent rien dire pour la shell, dès qu'on exécute la commande en appuyant sur Entrée, la shell ne peut pourra pas interpréter ces mots et protestera que la commande n'existe pas. \
+En revanche, si la commande existe, par exemple si on tape "ls + Entrée" (ls, abbréviation de "list", est une commande qui existe et qui montre tous les fichiers dans un dossier, par défaut le dossier courant (ou dossier sélectionné par la shell).
 
-On peut écrire des mots dedans. Si ces mots ne veulent rien dire, dès qu'on appuie sur entrée,
-la shell ne peut pas interpréter ces mots et proteste que la commande n'existe pas. \
-En revanche, si la commande existe, par exemple si on tape "ls + Entrée",
-ls est une commande qui existe et qui est l'abbréviation de "list", et qui montre tous les fichiers
-et dossiers dans le dossier sélectionné. Donc, on verra tous les fichiers dans le dossier
-dans lequel la shell est.
-
-=== La shell est dans un dossier?
+=== Le dossier courant ?
 
 Oui, il s'agit de la base du fonctionnement d'une shell. Elle permet d'intéragir avec les fichiers d'un système.
 Mais, il y a beaucoup de fichiers. Si l'on s'imagine un "arbre de fichiers et dossiers", où la racine contient toutes les branches,
@@ -144,10 +133,10 @@ ligne d'insertion le "path" qui correspond.
 
 Une dernière note:
 Cette explication a peut-être été difficile à suivre si elle a été suivie depuis la shell d'un utilisateur:
-Dans ce cas, le path ressemble plutôt à `~`, ou à `~/Documents/taoPics` ou à `~/.config/nixos` encore
+Dans ce cas, le path (ou chemin pour descendre les branches) ressemble plutôt à `~`, ou à `~/Documents/taoPics` ou à `~/.config/nixos` encore
 C'est parce que chaque utilisateur a un dossier "maison" qui se situe dans "/home/utilisateur/"
 et qui est dénoté `~` (le caractère incompréhensible justement). Donc, à chaque fois qu'on lit `~`, il faut remplacer par `/home/utilisateur`.
-C'est pour ne pas écrire du texte inutile, puisque tous les fichiers modifiés seront probablement dans `~`,
+C'est pour ne pas écrire du texte redondant, puisque tous les fichiers modifiés seront probablement dans `/home/utilisateur`,
 et sinon on peut y accéder en faisant
 ```sh ls /```ou ```sh cd /
  ls home/```
@@ -206,7 +195,6 @@ La section #link("https://github.com/YaLTeR/niri/wiki/Getting-Started")[getting 
 
 Cependant, sans applications, un compositeur est inutile. C'est pourquoi il est recommandé d'installer un terminal, qui donne accès à une GUI pour interagir avec la shell dans un compositeur, je recommande "kitty", mais aussi un navigateur web comme "firefox" et un lanceur d'applications comme "fuzzel". En lisant l'aide de Niri, qui aide à connaître les raccourcis clavier par défaut, il est possible de lancer fuzzel, pour ensuite lancer kitty, puis enfin NVIM depuis kitty (comme NVIM est une application qui s'utilise dans une shell). Tu peux aussi lancer firefox depuis fuzzel.
 
-<<<<<<< HEAD
 == Configurer des applications de manière déclarative
 Quasiment toutes les applications sont déjà supportées pour être configurées avec la syntaxe unifiée.
 Voici un exemple de configuration pour `kitty`, un terminal:
@@ -288,27 +276,10 @@ Cependant, pour avoir accès à la plupart des applications que l'on voudrait po
 
 L'installation de `home-manager`, comme tout le reste, est déclarative !
 
-Dans /etc/nixos/flake.nix, 
-=======
+To be continued
 
 
-
-
-== Comment installer Linux?
-
-
-Sachant qu'il y a plein de distros, chacune avec son propre moyen d'être installée,
-on peut essayer de comprendre le fonctionnement général, et détailler le processus d'installation pour
-NixOS spécifiquement, ainsi que Arch Linux, qui nous permet de faire chaque étape manuellement. Pour les autres distros, tu peux te référer à leurs pages de documentation qui
-sont souvent très claires.
-
-
-===Installer NixOS
-
-
-
-=== Comment se charge un système d'exploitation?
-
+=== Comment se démarre un système d'exploitation?
 
 Pour comprendre ce qu'on fait et pourquoi lorsqu'on installe linux, il faut comprendre comment un OS se "boot".
 
@@ -317,7 +288,3 @@ https://community.nxp.com/t5/i-MX-Processors-Knowledge-Base/The-Android-Booting-
 
 
 Le bootloader est donc nécessaire pour pouvoir charger le reste de linux, parce qu'un bios ne peut pas charger un kernel monolithique directement.
-
-
-
->>>>>>> e0c1b8738dd36a6f4e7ea2752423c043a5970212
